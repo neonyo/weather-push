@@ -57,11 +57,12 @@ func (w Wechat) GetTpl() (msgTpl *message.TemplateMessage, err error) {
 	var nextBirthday string
 	var year string
 	var birthdayMsg string
-	if carbon.Now().Gt(carbon.Parse(birthday)) {
+	thisYearBirthday := fmt.Sprint(carbon.Now().Year()) + md
+	if carbon.Now().Gt(carbon.Parse(thisYearBirthday)) {
 		year = fmt.Sprint(carbon.Now().Year() + 1)
 		nextBirthday = carbon.Parse(birthday).Format(year + md)
 		birthdayMsg = "距离你的生日还有" + fmt.Sprint(carbon.Now().DiffInDays(carbon.Parse(nextBirthday))) + "天"
-	} else if carbon.Now().Eq(carbon.Parse(birthday)) {
+	} else if carbon.Now().Eq(carbon.Parse(thisYearBirthday)) {
 		birthdayMsg = "今天是你的生日"
 	} else {
 		year = fmt.Sprint(carbon.Now().Year())
