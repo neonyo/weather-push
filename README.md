@@ -1,6 +1,7 @@
 # weather-push
 微信推送
 添加配置信息config.json
+
 TianXingKey ：https://www.tianapi.com/天行彩虹屁接口key
 
 loveDate ： 恋爱时间格式：YYYY-mm-dd
